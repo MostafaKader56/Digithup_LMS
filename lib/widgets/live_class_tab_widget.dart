@@ -29,7 +29,6 @@ class _LiveClassTabWidgetState extends State<LiveClassTabWidget> {
     token = await SharedPreferenceHelper().getAuthToken();
     var url =
         '$BASE_URL/api/zoom_live_class?course_id=${widget.courseId}&auth_token=$token';
-        print('URL: $url');
     try {
       final response = await http.get(Uri.parse(url));
 
@@ -59,8 +58,12 @@ class _LiveClassTabWidgetState extends State<LiveClassTabWidget> {
           );
         } else {
           if (dataSnapshot.error != null) {
-            //error
-            print(dataSnapshot.error.toString());
+            /*
+            Note: the returned value from Postman is empty as following.
+              zoom_live_class_details	[]
+              zoom_api_key	""
+              zoom_secret_key	""
+            */
             return Column(
               children: [
                 Padding(

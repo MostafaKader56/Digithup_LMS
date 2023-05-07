@@ -60,7 +60,12 @@ class _LiveClassTabWidgetState extends State<PrivateClassTabWidget> {
           );
         } else {
           if (dataSnapshot.error != null) {
-            //error
+            /*
+            Note: the returned value from Postman is empty as following.
+              zoom_live_class_details	[]
+              zoom_api_key	""
+              zoom_secret_key	""
+            */
             return Column(
               children: [
                 Padding(

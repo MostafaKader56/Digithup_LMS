@@ -412,7 +412,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).pushNamed(AuthScreen.routeName);
+                      Navigator.of(context).pushReplacementNamed(AuthScreen.routeName);
                     },
                     child: const Text(
                       ' تسجيل الدخول',
