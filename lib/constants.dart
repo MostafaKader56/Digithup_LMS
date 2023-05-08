@@ -5,6 +5,15 @@ const BASE_URL = 'https://aktashfsrlogaty.com'; // Example: const BASE_URL = 'ht
 
 // const BASE_URL = 'https://vipethi opia.com';
 
+// zoomApi and zoomSec is not working.
+// this is the new credentials for the new zoom package.
+const int appId = 1839004996;
+const String appSign =
+    '32e9f855c9c970fe400414a01eeb0b365483290b34b8e720176c4cfd589ef79e';
+
+String myMeetingId = '';
+
+
 // list of colors that we use in our app
 const kBackgroundColor = Color(0xFFF5F9FA);
 const kDarkButtonBg = Color(0xFF273546);

@@ -63,6 +63,8 @@ dependencies:
   carousel_slider: ^4.1.1
 
 #  flutter_zoom_sdk: ^1.1.0+4
+  zego_uikit_prebuilt_video_conference: ^2.2.5
+
 
 dev_dependencies:
   flutter_launcher_icons: "^0.11.0"

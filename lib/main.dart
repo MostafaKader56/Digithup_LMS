@@ -7,6 +7,7 @@ import 'package:academy_app/screens/edit_password_screen.dart';
 import 'package:academy_app/screens/edit_profile_screen.dart';
 import 'package:academy_app/screens/sub_category_screen.dart';
 import 'package:academy_app/screens/verification_screen.dart';
+import 'package:academy_app/screens/video_conferance_page.dart';
 import 'package:academy_app/screens/webview_screen.dart';
 import 'package:academy_app/screens/webview_screen_iframe.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -101,6 +102,7 @@ class MyApp extends StatelessWidget {
             CourseDetailScreen.routeName: (ctx) => const CourseDetailScreen(),
             // TempViewScreen.routeName: (ctx) => const TempViewScreen(),
             WebViewScreen.routeName: (ctx) => const WebViewScreen(),
+            VideoConferancePage.routeName: (ctx) => VideoConferancePage(),
             WebViewScreenIframe.routeName: (ctx) => WebViewScreenIframe(),
             EditPasswordScreen.routeName: (ctx) => const EditPasswordScreen(),
             EditProfileScreen.routeName: (ctx) => const EditProfileScreen(),

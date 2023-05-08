@@ -7,6 +7,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../constants.dart';
+import '../screens/video_conferance_page.dart';
 import '../screens/webview_screen.dart';
 import 'custom_text.dart';
 import 'package:http/http.dart' as http;
@@ -76,7 +77,7 @@ class _LiveClassTabWidgetState extends State<PrivateClassTabWidget> {
                     color: kNoteColor,
                     child: const Padding(
                       padding:
-                      EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
                       child: Text(
                         'لايوجد غرف حتي الان  ',
                         textAlign: TextAlign.center,
@@ -93,7 +94,7 @@ class _LiveClassTabWidgetState extends State<PrivateClassTabWidget> {
             );
           } else {
             var dt = DateTime.fromMillisecondsSinceEpoch(int.parse(
-                dataSnapshot.data!.zoomLiveClassDetails!.time.toString()) *
+                    dataSnapshot.data!.zoomLiveClassDetails!.time.toString()) *
                 1000);
             // 12 Hour format:
             var date = DateFormat('hh:mm a : E, dd MMM yyyy').format(dt);
@@ -159,14 +160,20 @@ class _LiveClassTabWidgetState extends State<PrivateClassTabWidget> {
                       btnCancelOnPress: () {},
                       btnOkOnPress: () async {
                         if (passwordController.text ==
-                            dataSnapshot.data!.zoomLiveClassDetails!.zoomMeetingPassword
+                            dataSnapshot
+                                .data!.zoomLiveClassDetails!.zoomMeetingPassword
                                 .toString()) {
-                          final token = await SharedPreferenceHelper().getAuthToken();
-                          final url =
-                              '$BASE_URL/api/zoom_mobile_web_view/${widget.courseId}/$token';
-                          // print(_url);
+                          // >> zoomApi and zoomSec is not working, so that we will use another way <<
+
+                          // final token = await SharedPreferenceHelper().getAuthToken();
+                          // final url = '$BASE_URL/api/zoom_mobile_web_view/${widget.courseId}/$token';
+                          // // print(_url);
+                          // Navigator.of(context).pushNamed(WebViewScreen.routeName, arguments: url);
+
+                          // The other way
+                          myMeetingId = widget.courseId.toString();
                           Navigator.of(context)
-                              .pushNamed(WebViewScreen.routeName, arguments: url);
+                              .pushNamed(VideoConferancePage.routeName);
                         } else {
                           AwesomeDialog(
                             context: context,
@@ -182,7 +189,6 @@ class _LiveClassTabWidgetState extends State<PrivateClassTabWidget> {
                             btnOkColor: kRedColor,
                           ).show();
                         }
-
                       },
                       btnCancelText: 'إلغاء',
                       btnOkText: 'موافق',
@@ -199,7 +205,6 @@ class _LiveClassTabWidgetState extends State<PrivateClassTabWidget> {
                         ),
                       ),
                     ).show();
-
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
